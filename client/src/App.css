@@ -1,0 +1,488 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+#country {
+  border: 1px solid #70154C4D;
+}
+
+.euroflag{
+  height: 30px;
+}
+
+.count{
+  position: absolute;
+  right: 50px;
+}
+
+
+.lead{
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.79px;
+  text-align: left;
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.bigparent{
+  display: flex;
+  flex-direction: column;
+  flex-grow:1;
+  justify-content: space-between;
+}
+
+#root{
+  display: flex;
+  height: 100%;
+}
+
+.infocohort{
+  display: inline-block;
+  width: 14.67px;
+  height: 14.67px;
+  line-height: 14.67px;
+  padding: 0px;
+
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+
+  background-color: #6C4D85;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+.hiddenspan{
+    visibility: hidden;
+    width: 260px;
+    background-color: white;
+    color: black;
+    border: 1px solid #6C4D85;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    margin-top: -28px;
+    margin-left: -18px;
+    font-size: 11px;
+  }
+
+.hovertext .hiddenspan::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -110px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #6C4D85 transparent transparent transparent;
+    
+  
+  }
+
+
+.hovertext:hover .hiddenspan{
+  visibility: visible;
+  
+
+}
+
+.errors{
+  color: red;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+
+
+}
+
+.exclamation{
+  color: #7372AD;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer{
+  width: 100vw;
+  height: Fixed (49px)px;
+  padding: 12px 143px 12px 143px;
+  gap: 174px;
+  opacity: 0px;
+  background: #E2E2E2;
+
+}
+
+.lsaai{
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+body{
+  height: 100vh;
+  min-height: 100%;
+}
+
+.allele{
+text-align: center;
+margin-left: 15%;
+margin-top: 1%;
+color: white;
+font-family: sans-serif;
+font-size: 24px;
+font-weight: 700;
+line-height: 32.68px;
+
+}
+
+.gdilogo{
+height: 72px;
+margin-left: 15%;
+cursor: pointer;
+}
+
+.button1{
+  border: 1px solid #70154C;
+  width: Hug (122px)px;
+  height: Fixed (46px)px;
+  padding: 10px 24px 10px 22px;
+  gap: 10px;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #F2EAEF;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16.94px;
+  text-align: left;  
+  color: #70154C;
+  position: relative;
+  top:30px;
+}
+
+.button1:disabled{
+  color: grey;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.button1:disabled:hover{
+  color: grey;
+  background-color: white;
+}
+
+.lupared{
+  width: 16px;
+  height: 16px;
+  padding: 2px 0px 0px 0px;
+  gap: 0px;
+  opacity: 0px;
+  background-image: url("../public/lupared.svg");
+  background-size: cover;
+  display: inline-block;
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+}
+
+
+.button1:hover {
+  background-color: #7B1B58;
+  color: white;
+}
+
+.button1:hover .lupared{
+  background-image: url("../public/lupawhite.svg");
+}
+
+.button1:disabled:hover .lupared{
+  background-image: url("../public/lupagray.svg");
+}
+
+
+.button1:disabled .lupared{
+  background-image: url("../public/lupagray.svg");
+}
+
+.button2{
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 35px;
+  width: 80px;
+}
+
+
+.button2:hover {
+  background-color: #7276B1;
+  color: white;
+}
+
+.customButton {
+  background-color: '#0B0C10';
+  border: '#45A293';
+  color: '#45A293';
+}
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.beaconized{
+  background: #70154C14;
+  border-width: 0.5px 0px 0px 0px;
+  border-style: solid;
+  border-top-color: #70154C;
+  border-bottom-color: #70154C;
+}
+table {
+  border-spacing: 0;
+  border-collapse: separate;
+  border-width: 0.5px 0.5px 0.5px 0.5px;
+  border-style: solid;
+  border-color: #70154C;
+  border-radius:10px;
+  overflow: hidden;
+}
+th {
+  background: #70154C;
+  color: white;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: black;
+  border-width: 0.5px 0px 0px 0px;
+  border-style: solid;
+  border-color: #70154C;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+.disabled td {
+  color: #4F5F64;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+}
+
+
+/* Background-color of the odd rows */
+.restable tr:nth-child(odd) {
+  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.restable tr:nth-child(even) {
+  background-color: #2C3446;
+}
+
+.restable th {
+  background-color: #1F2739;
+}
+
+.restable td:first-child { color: #FB667A; }
+
+.restable tr:hover {
+ background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.restable td:hover {
+background-color: #FFF842;
+color: #403E10;
+font-weight: bold;
+
+box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+transform: translate3d(6px, -6px, 0);
+
+transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+transition-timing-function: line;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.headercol{
+  /* The image used */
+  height: 250px;
+  width: 100vw;
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+  top: 0px !important;
+  left: 0px !important;
+  padding-left: 0px !important;
+  margin-left: 0px !important;
+
+
+}
+
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #7276B1;
+  position: absolute;
+  left: 45%;
+  margin-top: 50px;
+}
+  .loader:before,
+  .loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+  }
+  .loader:after {
+    color: #70154C;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+  }
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+
+.logo {
+  font-family: 'Patua One', sans-serif;
+  font-weight: 400;
+}
+
+.landing {
+  font-size: 72px;
+}
+
+.middle-center {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  margin: auto auto;
+  position: absolute;
+  text-align: center;
+}
+
+@media (max-width: 1800px){
+	.gdilogo {
+		margin-left: 10%;
+	}
+}
+
+@media (max-width: 1600px){
+	.gdilogo {
+		margin-left: 8%;
+	}
+}
+
+@media (max-width: 1500px){
+	.gdilogo {
+		margin-left: 5%;
+	}
+}
+
+
+
+
+@media (max-width: 700px){
+	.gdilogo {
+		margin-left: 0%;
+	}
+}
