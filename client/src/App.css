@@ -50,17 +50,15 @@ input:-webkit-autofill:active{
   height: 100%;
 }
 
-.infocohort{
+.infovariant{
   display: inline-block;
   width: 14.67px;
   height: 14.67px;
   line-height: 14.67px;
   padding: 0px;
-
   -moz-border-radius: 30px;
   border-radius: 30px;
-
-  background-color: #6C4D85;
+  background-color: #902B43;
   color: white;
   text-align: center;
   font-size: 16px;
@@ -173,21 +171,46 @@ cursor: pointer;
   line-height: 24px;
   cursor: pointer;
   margin-left: 15%;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .login-button:hover {
-  background-color: #bd4662;
+  background-color: #BD4662;
 }
 
 .login-button:active {
-  background-color: #bd4662;
+  background-color: #FFF5F7;
+  color: #902B43; 
 }
 
 .user-icon {
   width: 19px;
   height: 19px;
   margin-right: 5%;
+}
+
+.logos-founders{
+  height: 64.9px;
+  padding: 0 143px;
+  display: flex;
+  gap: 17px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.lamaratologogrey {
+  width: 93.29px;
+  height: 26.31px;
+}
+
+.institutcatalasalutgrey {
+  width: 103.31px;
+  height: 26.31px;
+}
+
+.lacaixalogogrey {
+  width: 167.02px;
+  height: 22.8px;
 }
 
 .button1{

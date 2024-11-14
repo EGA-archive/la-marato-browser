@@ -1,21 +1,15 @@
 // client/src/App.js
 import axios from 'axios';
 import React, { useState } from 'react'; // changed
-
 import './App.css';
-
 import { Col, Container, Row} from 'react-bootstrap';
-
 import ResultList from './components/ResultList';
 import Search from './components/Search';
-
 import SignInForm from './components/SignIn/SignInForm'
-
 import { useAuth } from 'oidc-react'
-
 import Navbar from 'react-bootstrap/Navbar';
-
 import Footer from './components/Footer.js'
+import NetworkMembers from './components/NetworkMembers.js';
 
 function App () {
   // new
@@ -30,11 +24,12 @@ function App () {
   const onClickHandler = () => {
     // Set the visibility flag to true when the button is clicked
     setIsQuizePageVisible(true)
+
   }
 
 
   // new
-  const search = async (cohort, variant, genome) => {
+  const search = async (variant, genome) => {
     setLoading(true)
     let jsonData1 = {}
     var arr = variant.split("-");
@@ -42,8 +37,8 @@ function App () {
     var finalend = end.toString()
     var finalstart = parseInt(arr[1])
     setFinalStart(finalstart)
-    //console.log(auth.userData.access_token);
-    // console.log(auth)
+    console.log(auth.userData.access_token);
+    console.log("Auth object:", auth)
 
     try {
       let metaresponse;
@@ -88,7 +83,7 @@ function App () {
       let response;
       
       if (auth && auth.userData){
-        // console.log(auth)
+      console.log(auth)
       response = await axios({
         method: 'post',
         url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
@@ -124,12 +119,16 @@ function App () {
       <Navbar style={{background: "#902B43",height:"77px",width:"100vw",borderWidth:"0", position: "sticky", top: "0", zIndex: "2"}}>
       <a class="lamaratologo" onClick={() => {window.location.href="/"}}><img src="/../lamaratologo.png" class="lamaratologo" alt="lamaratologo"></img></a>
       <h1 class="beacon">Beacon Frequency Browser</h1>
-      <button className="login-button">
+      <button className="login-button" onClick={onClickHandler}>
   <img src="/../userimage.png" className="user-icon" alt="User Icon" />
   Log In
 </button>
-
 </Navbar>
+<Container className="logos-founders">
+<img src="/../lamaratologogrey.png" className="lamaratologogrey" alt="lamaratologogrey" />
+<img src="/../institutcatalasalutgrey.png" className="institutcatalasalutgrey" alt="institutcatalasalutgrey" />
+<img src="/../lacaixalogogrey.png" className="lacaixalogogrey" alt="lacaixalogogrey" />
+</Container>
     <Container>
 
       <Row>
@@ -140,8 +139,9 @@ function App () {
 
       </Col>
       <Col>
-      {/* <button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>
-   <button></button> */}
+{/* <button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>
+<button></button> */}
+
 
       {/* When the flag is true, the page will be shown */}
       
@@ -162,6 +162,7 @@ function App () {
           {error !== false && <ResultList results={results} metaresults={metaresults} finalstart={finalstart} error={error}/>} {/* changed */}
     </Container>
     </div>
+    <NetworkMembers/>
     <Footer/>
     </div>
     

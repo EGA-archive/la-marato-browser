@@ -5,6 +5,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as Yup from 'yup';
+import { color } from '@mui/system';
 
 const SignupSchema = Yup.object().shape({
   variant: Yup.string()
@@ -19,7 +20,6 @@ const SignupSchema = Yup.object().shape({
 function Search ({ search }) { // changed
     const onSubmit = async (values, actions) => {
         await search(
-          values.cohort,
           values.variant,
           values.genome
         );
@@ -29,7 +29,6 @@ function Search ({ search }) { // changed
     return (
       <Formik
         initialValues={{
-          cohort: '',
           variant: '',
           genome: ''
         }}
@@ -50,14 +49,14 @@ function Search ({ search }) { // changed
             <Form.Group controlId="country">
             <Row>
                 
-                <Col lg={5} class="variant" style={{marginBottom:"-10px"}}>
-                <Form.Label><b>Variant</b></Form.Label>
+                <Col lg={8} class="variant" style={{marginBottom:"-10px"}}>
+                <Form.Label><b style={{marginRight:"10px"}}>Variant </b><span class="hovertext"><span class="hiddenspan">a group of people with a shared characteristic</span><b className="infovariant">i</b></span></Form.Label>
                     <Form.Control
                     type="search"
                     name="variant"
                     style={{marginBottom: "20px"}}
                     className="shadow-none"
-                    placeholder="Search for a variant"
+                    placeholder="Insert your variant"
                     value={values.variant}
                     onChange={handleChange}
                     />
@@ -76,19 +75,7 @@ function Search ({ search }) { // changed
                     <option value='GRCh37'>GRCh37</option>
                   </Form.Select>
                     </Col>
-                    <Col class="cohort">
-                    <Form.Label><b style={{marginRight:"10px"}}>Cohort </b><span class="hovertext"><span class="hiddenspan">a group of people with a shared characteristic</span><b class="infocohort">i</b></span></Form.Label>
-            
-                    <Form.Select 
-                    name='cohort'
-                    className="shadow-none"
-                    onChange={handleChange}
-                    value={values.cohort}>
-                      <option value="All">All</option>
-                      <option value="COVID">COVID</option>
-                      </Form.Select>
-
-                    </Col>
+                    {/* Search button */}
                     <div style={{width:"150px", display:"inline"}}>
               <button className="button1" type='submit' variant='primary' disabled={errors.variant}><div class='lupared'></div>Search</button>
               {/*<button className="button2 mt-3 ms-2" type='submit' variant='primary' onClick={() => {window.location.href="/"}}>
@@ -103,6 +90,7 @@ function Search ({ search }) { // changed
           <Form.Group as={Row}>
 
           </Form.Group>
+          {/* Example */}
         {touched.variant && errors.variant && <div class="errors">{errors.variant}</div>}
         <div style={{marginTop:"10px"}}><span>Example: </span><a type="reset" onClick={() => setFieldValue('variant', '3-45864731-T-C')}>
         <u style={{color:"blue"}}>3-45864731-T-C</u>
