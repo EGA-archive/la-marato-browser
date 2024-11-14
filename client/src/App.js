@@ -121,9 +121,15 @@ function App () {
   return (
     <div class="bigparent">
     <div class="parentwrapper">
-      <Navbar style={{backgroundImage:"url('/../HeaderBackgroundsvg.svg')",backgroundSize:"cover",height:"111px",width:"100vw",borderWidth:"0", position: "sticky", top: "0", zIndex: "2"}}>
-      <a class="gdilogo" onClick={() => {window.location.href="/"}}><img src="/../GDILogowhite.png" class="gdilogo" alt="gdilogo"></img></a>
-      <h1 class="allele">Allele Frequency Browser</h1></Navbar>
+      <Navbar style={{background: "#902B43",height:"77px",width:"100vw",borderWidth:"0", position: "sticky", top: "0", zIndex: "2"}}>
+      <a class="lamaratologo" onClick={() => {window.location.href="/"}}><img src="/../lamaratologo.png" class="lamaratologo" alt="lamaratologo"></img></a>
+      <h1 class="beacon">Beacon Frequency Browser</h1>
+      <button className="login-button">
+  <img src="/../userimage.png" className="user-icon" alt="User Icon" />
+  Log In
+</button>
+
+</Navbar>
     <Container>
 
       <Row>
@@ -134,8 +140,8 @@ function App () {
 
       </Col>
       <Col>
-      {/*<button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>*/}
-      {/*<button></button>*/}
+      {/* <button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>
+   <button></button> */}
 
       {/* When the flag is true, the page will be shown */}
       
