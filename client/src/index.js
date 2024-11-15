@@ -12,9 +12,10 @@ import configData from './config.json';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const oidcConfig = {
   onSignIn: async user => {
-    alert('You just signed in!')
+    alert('You just logged in!')
     window.location.hash = ''
   },
+
   authority: 'https://login.elixir-czech.org/oidc',
   clientId: process.env.REACT_APP_CLIENT_ID,
   clientSecret: process.env.REACT_APP_CLIENT_SECRET,

@@ -1,11 +1,12 @@
 // client/src/components/Search.js
 
-import React from 'react';
-
+import * as React from 'react';
+import Tooltip from '@mui/material/Tooltip';
 import { Formik } from 'formik';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as Yup from 'yup';
-import { color } from '@mui/system';
+import { color, maxHeight } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 const SignupSchema = Yup.object().shape({
   variant: Yup.string()
@@ -16,7 +17,6 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-
 function Search ({ search }) { // changed
     const onSubmit = async (values, actions) => {
         await search(
@@ -25,6 +25,23 @@ function Search ({ search }) { // changed
         );
       };
       
+
+      const CustomTooltip = styled(({ className, ...props }) => (
+        <Tooltip {...props} classes={{ popper: className }} />
+      ))({
+        [`& .MuiTooltip-tooltip`]: {
+          backgroundColor: '#FFFFFF', 
+          color: '#000000',           
+          border: '1px solid #902B43', 
+          fontSize: '14px',
+          padding: '5px 10.83px',  
+          borderRadius: '5px',   
+          maxWidth: '430px',
+        },
+        [`& .MuiTooltip-arrow`]: {
+          color: '#902B43', 
+        },
+      });
   
     return (
       <Formik
@@ -46,30 +63,37 @@ function Search ({ search }) { // changed
       }) => (
         <Form noValidate onSubmit={handleSubmit}>
           
-            <Form.Group controlId="country">
+            {/* <Form.Group controlId="country"> */}
+            <Form.Group >
             <Row>
-                
-                <Col lg={8} class="variant" style={{marginBottom:"-10px"}}>
-                <Form.Label><b style={{marginRight:"10px"}}>Variant </b><span class="hovertext"><span class="hiddenspan">a group of people with a shared characteristic</span><b className="infovariant">i</b></span></Form.Label>
-                    <Form.Control
-                    type="search"
-                    name="variant"
-                    style={{marginBottom: "20px"}}
-                    className="shadow-none"
-                    placeholder="Insert your variant"
-                    value={values.variant}
-                    onChange={handleChange}
-                    />
-                    
-                </Col>
-                
+            <Col lg={8} className="variant" style={{ marginBottom: "-10px" }}>
+      <Form.Label>
+        <b style={{ marginRight: "40px" }}>Variant</b>
+        <CustomTooltip
+          title="Type your variant or copy from Excel with this specific structure: chr / position / ref. base / alt. base"
+          placement="bottom-end"
+          arrow
+        >
+          <b className="infovariant" style={{ cursor: "pointer" }}>i</b>
+        </CustomTooltip>
+      </Form.Label>
+      <Form.Control
+        type="search"
+        name="variant"
+        className="input-field variant-field shadow-none"
+        style={{ marginBottom: "20px" }}
+        placeholder="Insert your variant"
+        value={values.variant}
+        onChange={handleChange}
+      />
+    </Col>
                 <Col class="refgenome">
                 <Form.Label htmlFor="points"><b>Ref Genome</b></Form.Label>
                 
                 <Form.Select
                     name='genome'
                     onChange={handleChange}
-                    className="shadow-none"
+                    className="input-field genome-field shadow-none"
                     value={values.genome}
                   >
                     <option value='GRCh37'>GRCh37</option>
@@ -78,14 +102,8 @@ function Search ({ search }) { // changed
                     {/* Search button */}
                     <div style={{width:"150px", display:"inline"}}>
               <button className="button1" type='submit' variant='primary' disabled={errors.variant}><div class='lupared'></div>Search</button>
-              {/*<button className="button2 mt-3 ms-2" type='submit' variant='primary' onClick={() => {window.location.href="/"}}>
-      Reset
-    </button>*/}
             </div>
-
                     </Row>
-
-
           </Form.Group>
           <Form.Group as={Row}>
 
