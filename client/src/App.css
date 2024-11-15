@@ -65,7 +65,6 @@ input:-webkit-autofill:active{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-
 .hiddenspan{
     visibility: hidden;
     width: 260px;
@@ -91,16 +90,12 @@ input:-webkit-autofill:active{
   border-width: 5px;
   border-style: solid;
   border-color: #6C4D85 transparent transparent transparent;
-    
-  
   }
 
 
 .hovertext:hover .hiddenspan{
   visibility: visible;
-  
-
-}
+  }
 
 .errors{
   color: red;
@@ -108,8 +103,6 @@ input:-webkit-autofill:active{
   font-weight: 400;
   line-height: 14.52px;
   text-align: left;
-
-
 }
 
 .exclamation{
@@ -126,6 +119,11 @@ input:-webkit-autofill:active{
   opacity: 0px;
   background: #E2E2E2;
 
+}
+
+.footer-text {
+  /* margin-left: 1%;; */
+  font-size: 12px;
 }
 
 .lsaai{
@@ -171,15 +169,15 @@ cursor: pointer;
   line-height: 24px;
   cursor: pointer;
   margin-left: 15%;
-  transition: background-color 0.3s, color 0.3s;
+  /* transition: background-color 0.3s, color 0.3s; */
 }
 
 .login-button:hover {
   background-color: #BD4662;
 }
 
-.login-button:active {
-  background-color: #FFF5F7;
+.login-button-active {
+  background-color: #FFF5F7 !important;
   color: #902B43; 
 }
 
@@ -187,6 +185,23 @@ cursor: pointer;
   width: 19px;
   height: 19px;
   margin-right: 5%;
+}
+
+.logout-button {
+  width: 120px;
+  height: 42px;
+  padding: 6px 10px;
+  gap: 8px;
+  border-radius: 6px;
+  border: 1px solid #902B43;
+  background-color: white; 
+  color: #902B43; 
+  font-size: 16px; 
+  font-weight: 400px;
+  letter-spacing: -0.16px;
+  line-height: 24px;
+  cursor: pointer;
+  margin-left: 15%;
 }
 
 .logos-founders{
@@ -213,36 +228,45 @@ cursor: pointer;
   height: 22.8px;
 }
 
+.input-field {
+  border: 1px solid #902B434D;
+  border-radius: 10px;
+}
+
+.variant-field {
+  height: 46px;
+}
+
+.genome-field {
+  width: 240px;
+  height: 46px;
+}
+
 .button1{
-  border: 1px solid #70154C;
+  border: 1px solid #902B43;
   width: Hug (122px)px;
-  height: Fixed (46px)px;
+  height: 46px;
   padding: 10px 24px 10px 22px;
   gap: 10px;
   border-radius: 10px 10px 10px 10px;
-  border: 1px 0px 0px 0px;
   opacity: 0px;
-  background: #F2EAEF;
+  background: #f7e4e9;
   font-family: sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 16.94px;
   text-align: left;  
-  color: #70154C;
+  color: #902B43;
   position: relative;
   top:30px;
 }
 
 .button1:disabled{
-  color: grey;
-  background-color: white;
-  border: 1px solid grey;
+  color: #f7e4e9;
+  background-color: transparent;
+  border: 1px solid #f7e4e9;
 }
 
-.button1:disabled:hover{
-  color: grey;
-  background-color: white;
-}
 
 .lupared{
   width: 16px;
