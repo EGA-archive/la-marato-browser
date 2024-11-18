@@ -2,7 +2,7 @@ import '../App.css';
 
 function Footer(){
     return (
-        <footer class="footer">
+        <footer className="footer">
       <span className="footer-text">@Copyright Projecte La Marató.</span>
         </footer>
     )

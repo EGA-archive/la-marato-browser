@@ -71,7 +71,7 @@ function Search ({ search }) { // changed
         <b style={{ marginRight: "40px" }}>Variant</b>
         <CustomTooltip
           title="Type your variant or copy from Excel with this specific structure: chr / position / ref. base / alt. base"
-          placement="bottom-end"
+          placement="right"
           arrow
         >
           <b className="infovariant" style={{ cursor: "pointer" }}>i</b>
@@ -81,7 +81,7 @@ function Search ({ search }) { // changed
         type="search"
         name="variant"
         className="input-field variant-field shadow-none"
-        style={{ marginBottom: "20px" }}
+        style={{ marginBottom: "20px", borderColor: touched.variant && errors.variant ? 'red' : '', }}
         placeholder="Insert your variant"
         value={values.variant}
         onChange={handleChange}
@@ -109,7 +109,8 @@ function Search ({ search }) { // changed
 
           </Form.Group>
           {/* Example */}
-        {touched.variant && errors.variant && <div class="errors">{errors.variant}</div>}
+        {touched.variant && errors.variant && <div className="errors">{errors.variant}</div>}
+
         <div style={{marginTop:"10px"}}><span>Example: </span><a type="reset" onClick={() => setFieldValue('variant', '3-45864731-T-C')}>
         <u style={{color:"blue"}}>3-45864731-T-C</u>
         </a></div>

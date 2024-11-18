@@ -10,7 +10,7 @@ import { useAuth } from 'oidc-react';
 import Navbar from 'react-bootstrap/Navbar';
 import Footer from './components/Footer.js';
 import LoggedIn from './components/SignIn/LoggedIn.js'; 
- // import NetworkMembers from './components/NetworkMembers.js';
+import NetworkMembers from './components/NetworkMembers.js';
 
 
 function App() {
@@ -20,13 +20,11 @@ function App() {
   const [error, setError] = useState(false);
   const [isQuizePageVisible, setIsQuizePageVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [imageSrc, setImageSrc] = useState('/../userimage.png');
   const auth = useAuth();
 
   const onClickHandler = () => {
     setIsQuizePageVisible(true);
   };
-
 
 
   const search = async (variant, genome) => {
@@ -117,13 +115,14 @@ function App() {
       <Navbar style={{background: "#902B43",height:"77px",width:"100vw",borderWidth:"0", position: "sticky", top: "0", zIndex: "2"}}>
       <a class="lamaratologo" onClick={() => {window.location.href="/"}}><img src="/../lamaratologo.png" class="lamaratologo" alt="lamaratologo"></img></a>
       <h1 class="beacon">Beacon Frequency Browser</h1>
-          <LoggedIn onClickHandler={onClickHandler} imageSrc={imageSrc} setImageSrc={setImageSrc} />
+          <LoggedIn onClickHandler={onClickHandler} />
         </Navbar>
         <Container className="logos-founders">
           <img src="/../lamaratologogrey.png" className="lamaratologogrey" alt="lamaratologogrey" />
           <img src="/../institutcatalasalutgrey.png" className="institutcatalasalutgrey" alt="institutcatalasalutgrey" />
           <img src="/../lacaixalogogrey.png" className="lacaixalogogrey" alt="lacaixalogogrey" />
         </Container>
+
         <Container>
           <Row>
             <Col lg={3}></Col>
@@ -136,8 +135,11 @@ function App() {
             <Search search={search} />
           </Row>
           {isLoading === true && error === false && <div class="loader"></div>}
-          {isLoading === false && error === false && <ResultList results={results} metaresults={metaresults} finalstart={finalstart} error={error}/>} {/* changed */}
-          {error !== false && <ResultList results={results} metaresults={metaresults} finalstart={finalstart} error={error}/>} {/* changed */}
+          {isLoading === false && error === false && <ResultList results={results} metaresults={metaresults} finalstart={finalstart} error={error}/>}
+          {error !== false && <ResultList results={results} metaresults={metaresults} finalstart={finalstart} error={error}/>}
+        </Container>
+        <Container>
+          <NetworkMembers />
         </Container>
       </div>
       <Footer />
