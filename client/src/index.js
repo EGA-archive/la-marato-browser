@@ -1,36 +1,36 @@
 // client/src/index.js
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'bootswatch/dist/lumen/bootstrap.css'; // new
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { AuthProvider } from 'oidc-react';
-import configData from './config.json';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "bootswatch/dist/lumen/bootstrap.css"; // new
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { AuthProvider } from "oidc-react";
+import configData from "./config.json";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 const oidcConfig = {
-  onSignIn: async user => {
-    alert('You just logged in!')
-    window.location.hash = ''
+  onSignIn: async (user) => {
+    alert("You just logged in!");
+    window.location.hash = "";
   },
 
-  authority: 'https://login.elixir-czech.org/oidc',
+  authority: "https://login.elixir-czech.org/oidc",
   clientId: process.env.REACT_APP_CLIENT_ID,
   clientSecret: process.env.REACT_APP_CLIENT_SECRET,
   autoSignIn: false,
-  responseType: 'code',
+  responseType: "code",
   automaticSilentRenew: true,
   redirectUri:
-    process.env.NODE_ENV === 'development' && configData.REDIRECT_URL,
-  scope: 'openid profile email ga4gh_passport_v1 offline_access',
-  revokeAccessTokenOnSignout: true
+    process.env.NODE_ENV === "development" && configData.REDIRECT_URL,
+  scope: "openid profile email ga4gh_passport_v1 offline_access",
+  revokeAccessTokenOnSignout: true,
 };
 root.render(
   <React.StrictMode>
     <AuthProvider {...oidcConfig}>
-    <App />
+      <App />
     </AuthProvider>
   </React.StrictMode>
 );
