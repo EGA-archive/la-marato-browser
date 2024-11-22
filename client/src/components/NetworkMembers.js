@@ -12,13 +12,11 @@ function NetworkMembers() {
         let metaresponse;
         metaresponse = await axios({
           method: "get",
-          url: "https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0",
+          url: "https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/",
           headers: {
             "Content-Type": "application/json",
           },
         });
-
-        // console.log('This is my metaresponse', metaresponse.data.responses);
         setMembers(metaresponse.data.responses);
       } catch (err) {
         console.error(err);
@@ -38,22 +36,8 @@ function NetworkMembers() {
         <b>Beacon Network Members</b>
       </p>
       <div className="bnmembers-container">
-        <div className="row">
-          {members.map((member, index) => (
-            <div className="cell" key={index}>
-              {member.response?.organization?.logoUrl ? (
-                <img
-                  src={member.response.organization.logoUrl}
-                  alt={member.response.organization.name || "Organization Logo"}
-                  className="cell-image"
-                />
-              ) : (
-                <p>No Logo Available</p>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="row">
+        {/* <div className="row bnmembers-row"> */}
+        <div className="bnmembers-grid">
           {members.map((member, index) => (
             <div className="cell" key={index}>
               {member.response?.organization?.logoUrl ? (
