@@ -1,6 +1,6 @@
 // client/src/App.js
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState } from "react"; // changed
 import "./App.css";
 import { Col, Container, Row } from "react-bootstrap";
 import ResultList from "./components/ResultList";
@@ -13,22 +13,23 @@ import LoggedIn from "./components/SignIn/LoggedIn.js";
 import NetworkMembers from "./components/NetworkMembers.js";
 
 function App() {
+  // new
   const [results, setResults] = useState([]);
   const [metaresults, setMetaResults] = useState([]);
   const [finalstart, setFinalStart] = useState([]);
   const [error, setError] = useState(false);
   const [isQuizePageVisible, setIsQuizePageVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [searchTriggered, setSearchTriggered] = useState(false); // NEW: Track if search was triggered
   const auth = useAuth();
 
   const onClickHandler = () => {
+    // Set the visibility flag to true when the button is clicked
     setIsQuizePageVisible(true);
   };
 
+  // new
   const search = async (variant, genome) => {
     setLoading(true);
-    setSearchTriggered(true);
     let jsonData1 = {};
     var arr = variant.split("-");
     if (arr[2].length === 1) {
@@ -39,17 +40,16 @@ function App() {
     var finalend = end.toString();
     var finalstart = parseInt(arr[1]);
     setFinalStart(finalstart);
-    // console.log(auth.userData.access_token);
-    // console.log("Auth object:", auth);
+    //console.log(auth.userData.access_token);
+    // console.log(auth)
 
-    // Call to get the info from the table
     try {
+      console.log("mimi");
       let metaresponse;
       metaresponse = await axios({
         method: "get",
-        url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/`,
-        //url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/beacon-network/v2.0.0/g_variants`,
-        // https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0/g_variants
+        url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/`,
+        // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -63,7 +63,9 @@ function App() {
     }
     try {
       jsonData1 = {
-        meta: { apiVersion: "2.0" },
+        meta: {
+          apiVersion: "2.0",
+        },
         query: {
           requestParameters: {
             alternateBases: arr[3],
@@ -74,7 +76,10 @@ function App() {
           },
           filters: [],
           includeResultsetResponses: "HIT",
-          pagination: { skip: 0, limit: 10 },
+          pagination: {
+            skip: 0,
+            limit: 10,
+          },
           testMode: false,
           requestedGranularity: "record",
         },
@@ -82,10 +87,11 @@ function App() {
       let response;
 
       if (auth && auth.userData) {
-        console.log(auth);
+        // console.log(auth)
         response = await axios({
           method: "post",
-          url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
+          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
+          // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${auth.userData.access_token}`,
@@ -95,16 +101,16 @@ function App() {
       } else {
         response = await axios({
           method: "get",
-          url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
-          // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
+          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
+          // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
           headers: {
             "Content-Type": "application/json",
           },
           data: jsonData1,
         });
       }
+      console.log(response);
       setResults(response.data.response.resultSets);
-      console.log("This is the long object", response.data.response.resultSets);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -112,8 +118,8 @@ function App() {
   };
 
   return (
-    <div className="bigparent">
-      <div className="parentwrapper">
+    <div class="bigparent">
+      <div class="parentwrapper">
         <Navbar
           style={{
             background: "#902B43",
@@ -159,21 +165,23 @@ function App() {
             alt="lacaixalogogrey"
           />
         </Container>
-        <Container className="mainbody">
+        <Container>
           <Row>
             <Col lg={3}></Col>
             <Col lg={7}></Col>
             <Col>
+              {/*<button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>*/}
+              {/*<button></button>*/}
+
+              {/* When the flag is true, the page will be shown */}
+
               {auth && auth.userData && <SignInForm />}
               {!auth.userData && isQuizePageVisible && <SignInForm />}
             </Col>
-            <p className="lead mt-5 mb-4">Search for your variant:</p>
-            <Search search={search} />
+            <p className="lead mt-5">Search for your variant:</p>
+            <Search search={search} /> {/* changed */}
           </Row>
-          {/* Show loader while searching */}
           {isLoading === true && error === false && <div class="loader"></div>}
-          {/* Show results if search is successful */}
-
           {isLoading === false && error === false && (
             <ResultList
               results={results}
@@ -181,13 +189,12 @@ function App() {
               finalstart={finalstart}
               error={error}
             />
-          )}
-          {/* Show error message if there's a problem */}
+          )}{" "}
           {/* Show NetworkMembers only if no search results */}
-          {isLoading === false && error === false && results.length === 0 && (
+          {isLoading === false && error === false && results?.length === 0 && (
             <NetworkMembers />
           )}
-
+          {/* changed */}
           {error !== false && (
             <ResultList
               results={results}
@@ -195,7 +202,8 @@ function App() {
               finalstart={finalstart}
               error={error}
             />
-          )}
+          )}{" "}
+          {/* changed */}
         </Container>
       </div>
       <Footer />

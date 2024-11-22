@@ -256,17 +256,21 @@ body {
 
 .bnmembers-container {
   width: 1100px;
-  height: Hug (157.94px);
+  /* height: Hug (157.94px); */
+  height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row !important;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
+.bnmembers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .cell {
@@ -275,7 +279,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 
 .cell-image {
@@ -378,24 +381,12 @@ body {
 }
 
 .mail-icon {
+  position: relative;
   width: 19.81px;
   height: 15.92px;
   transition: all 0.3s ease;
+  z-index: 2;
 }
-
-.mail-icon:hover {
-  background-color: #e9d5d9;
-  width: 20px;
-  height: 20px;
-  border-radius: 65px;
-  z-index: -1;
-}
-
-/* .hover-container:hover .mail-icon {
-  content: img("/../maildark.svg");
-  width: 19.81px;
-  height: 15.92px;
-} */
 
 .beaconized {
   background: #fff5f7;
@@ -404,6 +395,7 @@ body {
   border-top-color: #902b43;
   border-bottom-color: #902b43;
 }
+
 table {
   border-spacing: 0;
   border-collapse: separate;
@@ -480,6 +472,16 @@ tbody tr:hover {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+/* Dialog Styling
+.mail-dialog-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #902b43;
+} */
 
 .App-header {
   background-color: #282c34;
