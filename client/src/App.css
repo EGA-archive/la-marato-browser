@@ -256,10 +256,15 @@ body {
   -webkit-appearance: none; /* Remove default styling */
   height: 14px;
   width: 14px;
-  background-color: transparent;
+  background-color: grey;
   color: green;
   font-weight: bold;
   cursor: pointer;
+}
+
+.variant-field::-webkit-search-cancel-button:hover {
+  background-color: green; /* Add a hover effect */
+  color: white;
 }
 
 .bnmembers-container {
