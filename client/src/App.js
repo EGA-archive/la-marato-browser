@@ -47,7 +47,7 @@ function App() {
       let metaresponse;
       metaresponse = await axios({
         method: "get",
-        url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/`,
+        url: `https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0/`,
         // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/`,
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ function App() {
         // console.log(auth)
         response = await axios({
           method: "post",
-          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
+          url: `https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0/g_variants`,
           // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
           headers: {
             "Content-Type": "application/json",
@@ -100,7 +100,7 @@ function App() {
       } else {
         response = await axios({
           method: "get",
-          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=${genome}`,
+          url: `https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=${genome}`,
           // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
           headers: {
             "Content-Type": "application/json",

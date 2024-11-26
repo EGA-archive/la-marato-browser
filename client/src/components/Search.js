@@ -10,7 +10,7 @@ import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { ThemeProvider } from "@mui/material/styles";
-import customTheme from "../components/CustomTheme";
+import CustomTheme from "../components/CustomTheme";
 
 const SignupSchema = Yup.object().shape({
   variant: Yup.string()
@@ -49,11 +49,11 @@ function Search({ search }) {
   });
 
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={CustomTheme}>
       <Formik
         initialValues={{
           variant: "",
-          genome: "GRCh37", // Preselect GRCh37
+          genome: "GRCh38", // Preselect GRCh38
         }}
         validationSchema={SignupSchema}
         onSubmit={onSubmit}
@@ -70,9 +70,13 @@ function Search({ search }) {
             event.preventDefault();
             const pastedData = event.clipboardData.getData("text");
             const cleanedData = pastedData
-              .trim()
-              .replace(/\t/g, "-")
-              .replace(/\s+/g, "-");
+              .trim() // Remove leading/trailing whitespace
+              .replace(/\./g, "") // Remove all periods
+              .replace(/\s+/g, " ") // Replace multiple spaces with a single space
+              .replace(/\t/g, "-") // Replace tabs with a single hyphen
+              .replace(/\s/g, "-") // Replace remaining spaces with a single hyphen
+              .replace(/-+/g, "-"); // Replace multiple consecutive hyphens with a single hyphen
+            // .replace(/\s+/g, "-");
             setFieldValue("variant", cleanedData);
           };
 
