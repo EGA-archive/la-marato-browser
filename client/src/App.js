@@ -44,7 +44,6 @@ function App() {
     // console.log(auth)
 
     try {
-      console.log("mimi");
       let metaresponse;
       metaresponse = await axios({
         method: "get",
@@ -101,7 +100,7 @@ function App() {
       } else {
         response = await axios({
           method: "get",
-          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
+          url: `https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=${genome}`,
           // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
           headers: {
             "Content-Type": "application/json",
@@ -144,7 +143,7 @@ function App() {
                 alt="lamaratologo"
               ></img>
             </a>
-            <h1 className="beacon">Beacon Frequency Browser</h1>
+            <h1 className="beacon">La Marató Beacon Network Browser</h1>
             <LoggedIn onClickHandler={onClickHandler} />
           </Container>
         </Navbar>

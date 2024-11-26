@@ -13,9 +13,9 @@ function ResultList({ results, metaresults, finalstart, error }) {
   console.log("Metaresults from RL", metaresults);
 
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [email, setEmail] = useState("mailto:test555");
+  const [email, setEmail] = useState("");
 
-  const handleDialogOpen = (email = "mailto:kkkk") => {
+  const handleDialogOpen = (email) => {
     setDialogOpen(true);
     setEmail(email);
   };
@@ -185,7 +185,7 @@ function ResultList({ results, metaresults, finalstart, error }) {
             <table style={{ width: "100%", marginBottom: "32px" }}>
               <tr>
                 <th>Beacon</th>
-                <th style={{ width: "20%" }}>ID</th>
+                <th style={{ width: "20%" }}>Dataset</th>
                 <th className="centered-header" style={{ width: "11%" }}>
                   Allele Count
                 </th>
