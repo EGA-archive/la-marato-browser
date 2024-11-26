@@ -160,7 +160,7 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
       </DialogTitle>
       <DialogContent
         sx={{
-          paddingBottom: "0", // Sets padding-bottom to 0
+          paddingBottom: "0",
         }}
       >
         <Typography
@@ -172,8 +172,8 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
             lineHeight: "24px",
             letterSpacing: "0.5px",
             color: "#3176B1",
-            wordBreak: "break-word", // Allows the text to wrap within the container
-            textDecoration: "underline", // Adds underline to the link
+            wordBreak: "break-word",
+            textDecoration: "underline",
             paddingBottom: "0",
           }}
         >
@@ -215,48 +215,6 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
           </span>
         </Typography>
       </DialogContent>
-      {/* <DialogTitle
-        sx={{
-          m: 0,
-          p: 2,
-          fontFamily: "Open Sans, sans-serif",
-          fontSize: "14px",
-          fontWeight: 700,
-          lineHeight: "24px",
-          letterSpacing: "0.5px",
-          color: "black",
-          display: "flex",
-          alignItems: "flex-start",
-        }}
-      >
-        {" "}
-        <img
-          src={fileIcon}
-          alt="File Icon"
-          style={{ width: "20px", height: "20px", marginRight: "8px" }}
-        />
-        Project Description
-      </DialogTitle> */}
-      {/* <DialogContent
-        sx={{
-          padding: "20px", // Ensures consistent padding for all sections
-        }}
-      >
-        <Typography
-          gutterBottom
-          sx={{
-            fontFamily: "Open Sans, sans-serif",
-            fontSize: "14px",
-            fontWeight: 400,
-            lineHeight: "24px",
-            letterSpacing: "0.5px",
-            color: "black",
-          }}
-        >
-          Donec sed odio dui. Donec ullamcorper nulla non metus auctor
-          fringilla.
-        </Typography>
-      </DialogContent> */}
     </Dialog>
   );
 }

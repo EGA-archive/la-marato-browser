@@ -234,8 +234,16 @@ body {
   border-radius: 10px;
 }
 
+.input-field:focus {
+  border-color: #902b43;
+}
+
+.input-field:hover {
+  border-color: #902b43;
+}
+
 .variant-field {
-  height: 46px;
+  height: 40px;
 }
 
 .genome-field {
@@ -290,7 +298,7 @@ body {
 .button1 {
   border: 1px solid #902b43;
   width: Hug (122px) px;
-  height: 46px;
+  height: 40px;
   padding: 10px 24px 10px 22px;
   gap: 10px;
   border-radius: 10px 10px 10px 10px;
