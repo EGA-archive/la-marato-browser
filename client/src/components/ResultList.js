@@ -59,6 +59,7 @@ function ResultList({
         dataset = result.id;
 
         result.results.map((variant) => {
+          let geneAssociated = "No genes associated";
           if (variant.molecularAttributes) {
             geneAssociated = variant.molecularAttributes.geneIds.join(", ");
           }
