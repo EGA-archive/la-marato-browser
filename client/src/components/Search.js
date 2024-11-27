@@ -25,8 +25,9 @@ const SignupSchema = Yup.object().shape({
 //Dropdown Menu
 const refGenome = [{ label: "GRCh37" }, { label: "GRCh38" }];
 
-function Search({ search }) {
+function Search({ search, setVariant }) {
   const onSubmit = async (values, actions) => {
+    setVariant(values.variant);
     await search(values.variant, values.genome);
   };
 
@@ -84,17 +85,33 @@ function Search({ search }) {
             <Form noValidate onSubmit={handleSubmit}>
               {/* <Form.Group controlId="country"> */}
               <Form.Group>
-                <Row>
+                <Row style={{ marginTop: "30px" }}>
                   <Col
                     lg={8}
                     className="variant"
                     style={{ marginBottom: "-10px" }}
                   >
                     <Form.Label>
-                      <b style={{ marginRight: "40px" }}>Variant</b>
+                      <b style={{ marginRight: "10px" }}>Variant query</b>
                       <CustomTooltip
-                        title="Type your variant or copy from Excel with this specific structure: chr / position / ref. base / alt. base"
-                        placement="right"
+                        title={
+                          <ul
+                            style={{
+                              margin: 0,
+                              padding: 0,
+                              listStyleType: "disc",
+                              paddingLeft: "20px",
+                            }}
+                          >
+                            <li>
+                              Type your variant or copy from Excel with this
+                              specific structure: chr / position / ref. base /
+                              alt. base.
+                            </li>
+                            <li>Queries need to be in 0-based format.</li>
+                          </ul>
+                        }
+                        placement="top-start"
                         arrow
                       >
                         <b
@@ -120,6 +137,7 @@ function Search({ search }) {
                       onChange={handleChange}
                     />
                   </Col>
+
                   <Col className="refgenome">
                     <Form.Label htmlFor="points">
                       <b>Ref Genome</b>
@@ -151,7 +169,6 @@ function Search({ search }) {
                       )}
                     />
                   </Col>
-
                   {/* Search button */}
                   <div style={{ width: "150px", display: "inline" }}>
                     <button

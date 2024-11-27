@@ -10,7 +10,6 @@ import mailIcon from "../images/mailIcon.svg";
 import fileIcon from "../images/file.svg";
 
 export default function MailDialog({ open, onClose, beaconEmail }) {
-  console.log("Received beaconEmail prop:", beaconEmail);
   return (
     <Dialog
       onClose={onClose}
@@ -185,6 +184,7 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
               color: "#3176B1",
               textDecoration: "underline",
               fontWeight: "bold",
+              fontSize: "14px",
             }}
           >
             https://docs.google.com/document/d/1b472gmuq5g_NZaYxJWnXGbwfGRgA1PfjhjSty3QqDv0/edit?usp=sharing
