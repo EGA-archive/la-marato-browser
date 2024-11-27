@@ -53,7 +53,7 @@ function Search({ search }) {
       <Formik
         initialValues={{
           variant: "",
-          genome: "GRCh38", // Preselect GRCh38
+          genome: "GRCh37", // Preselect GRCh37
         }}
         validationSchema={SignupSchema}
         onSubmit={onSubmit}
@@ -174,9 +174,9 @@ function Search({ search }) {
                 <span>Example: </span>
                 <a
                   type="reset"
-                  onClick={() => setFieldValue("variant", "3-45864731-T-C")}
+                  onClick={() => setFieldValue("variant", "22-16050921-T-G")}
                 >
-                  <u style={{ color: "blue" }}>3-45864731-T-C</u>
+                  <u style={{ color: "blue" }}>22-16050921-T-G</u>
                 </a>
               </div>
             </Form>
