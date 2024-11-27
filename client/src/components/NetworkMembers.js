@@ -12,7 +12,7 @@ function NetworkMembers() {
         let metaresponse;
         metaresponse = await axios({
           method: "get",
-          url: "https://beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/",
+          url: "https://beacon-network-backend-test.ega-archive.org/beacon-network/v2.0.0/",
           headers: {
             "Content-Type": "application/json",
           },
