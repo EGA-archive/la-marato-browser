@@ -20,6 +20,7 @@ function App() {
   const [error, setError] = useState(false);
   const [isQuizePageVisible, setIsQuizePageVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [queriedVariant, setQueriedVariant] = useState("");
   const auth = useAuth();
 
   const onClickHandler = () => {
@@ -177,8 +178,9 @@ function App() {
               {auth && auth.userData && <SignInForm />}
               {!auth.userData && isQuizePageVisible && <SignInForm />}
             </Col>
-            <p className="lead mt-5">Search for your variant:</p>
-            <Search search={search} /> {/* changed */}
+            {/* <div className="mt-5"></div> */}
+            <Search search={search} setVariant={setQueriedVariant} />{" "}
+            {/* changed */}
           </Row>
           {isLoading === true && error === false && <div class="loader"></div>}
           {isLoading === false && error === false && (
@@ -187,6 +189,7 @@ function App() {
               metaresults={metaresults}
               finalstart={finalstart}
               error={error}
+              queriedVariant={queriedVariant}
             />
           )}{" "}
           {/* Show NetworkMembers only if no search results */}
@@ -200,6 +203,7 @@ function App() {
               metaresults={metaresults}
               finalstart={finalstart}
               error={error}
+              // queriedVariant={queriedVariant}
             />
           )}{" "}
           {/* changed */}

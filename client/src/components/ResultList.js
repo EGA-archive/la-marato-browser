@@ -8,8 +8,18 @@ import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import MailDialog from "./MailDialog.js";
 
 // changed
-function ResultList({ results, metaresults, finalstart, error }) {
+function ResultList({
+  results,
+  metaresults,
+  finalstart,
+  queriedVariant,
+  error,
+}) {
   console.log("Results from RL", results);
+  console.log("Raw Results from RL", results);
+  results.forEach((result, index) => {
+    console.log(`Result ${index}:`, result);
+  });
   console.log("Metaresults from RL", metaresults);
 
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -41,7 +51,8 @@ function ResultList({ results, metaresults, finalstart, error }) {
   var popu = "";
   var geneAssociated = "No genes associated";
   if (results !== undefined) {
-    const resultItems = results.map((result) => {
+    const resultItems = results.map((result, index) => {
+      console.log(`Processing result at index ${index}:`, result);
       if (result.results) {
         isresponse = "True";
         rows = [];
@@ -56,7 +67,7 @@ function ResultList({ results, metaresults, finalstart, error }) {
               exists = "True";
               isresponse = "True";
 
-              variant.frequencyInPopulations.map((frequencyInPopulation) =>
+              variant.frequencyInPopulations.map((frequencyInPopulation) => {
                 frequencyInPopulation.frequencies.map((frequency) => {
                   alleleC = Array.isArray(frequency.alleleCount)
                     ? frequency.alleleCount[0]
@@ -99,8 +110,9 @@ function ResultList({ results, metaresults, finalstart, error }) {
                       frequency.alleleFrequency.toString().substring(0, 6)
                     ),
                   });
-                })
-              );
+                  console.log("All pushed rows so far:", rows);
+                });
+              });
             }
           }
         });
@@ -178,8 +190,11 @@ function ResultList({ results, metaresults, finalstart, error }) {
             },
           }}
         >
-          <p className="lead mt-2 mb-4">
-            <b>Results</b>
+          <p className="lead mt-2 mb-2">
+            <b>Results </b>
+          </p>
+          <p>
+            {queriedVariant && <span> Queried Variant: {queriedVariant}</span>}
           </p>
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", marginBottom: "32px" }}>
