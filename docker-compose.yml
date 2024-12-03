@@ -13,5 +13,6 @@ services:
       - 3000:3000
     volumes:
       - ./client:/usr/src/app
+      - ./client/.env:/client/.env
 
   
