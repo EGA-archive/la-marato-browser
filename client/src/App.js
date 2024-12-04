@@ -55,7 +55,7 @@ function App() {
         },
         data: jsonData1,
       });
-      console.log(metaresponse.data.responses);
+      // console.log(metaresponse.data.responses);
       setMetaResults(metaresponse.data.responses);
     } catch (error) {
       console.error(error);
@@ -132,20 +132,27 @@ function App() {
           }}
         >
           <Container className="navbarContainer">
-            <a
-              className="lamaratologo"
-              onClick={() => {
-                window.location.href = "/";
-              }}
-            >
-              <img
-                src="/../lamaratologo.png"
+            <div className="navbar-column navbar-logo">
+              <a
                 className="lamaratologo"
-                alt="lamaratologo"
-              ></img>
-            </a>
-            <h1 className="beacon">La Marató Beacon Network Browser</h1>
-            <LoggedIn onClickHandler={onClickHandler} />
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              >
+                <img
+                  src="/../lamaratologo.png"
+                  className="lamaratologo"
+                  alt="lamaratologo"
+                />
+              </a>
+            </div>
+            <div className="navbar-column navbar-title">
+              <h1 className="beacon-title">La Marató Beacon Network Browser</h1>
+            </div>
+            <div className="navbar-column navbar-empty"></div>
+            <div className="navbar-column navbar-login">
+              <LoggedIn onClickHandler={onClickHandler} />
+            </div>
           </Container>
         </Navbar>
         <Container className="logos-founders">
