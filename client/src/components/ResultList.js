@@ -52,7 +52,7 @@ function ResultList({
   var geneAssociated = "No genes associated";
   if (results !== undefined) {
     const resultItems = results.map((result, index) => {
-      console.log(`Processing result at index ${index}:`, result);
+      // console.log(`Processing result at index ${index}:`, result);
       if (result.results) {
         isresponse = "True";
         rows = [];

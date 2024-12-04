@@ -1,4 +1,3 @@
-// client/src/components/SignIn/LoggedIn.js
 import React, { useState, useEffect } from "react";
 import { useAuth } from "oidc-react";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
@@ -11,8 +10,6 @@ const LoggedIn = ({ onClickHandler }) => {
   const handleLoginClick = () => {
     onClickHandler();
     setIsActive(true);
-    console.log("Login handleLoginClick:", isActive);
-    console.log("Logout handleLoginClick:", logoutIsActive);
   };
 
   // const handleLogoutClick = () => {
@@ -22,31 +19,24 @@ const LoggedIn = ({ onClickHandler }) => {
   //   console.log("Logout handleLogoutClick:", logoutIsActive)
   // };
 
+  console.log("This is my given_name:", auth.userData);
+
   const handleLogoutClick = () => {
     setLogoutIsActive(true);
   };
   useEffect(() => {
     if (logoutIsActive) {
       setTimeout(() => auth.signOut(), 600);
-      //      alert('You are logged out!')
-      // window.location.hash = ''
     }
   }, [logoutIsActive]);
 
   if (auth && auth.userData) {
     return (
-      <button
-        className={`logout-button ${
-          logoutIsActive ? "logout-button-active" : ""
-        }`} // Apply active class if isActive is true
-        onClick={handleLogoutClick}
-      >
-        <ExitToAppRoundedIcon
-          style={{ color: logoutIsActive ? "#902B43" : "" }} // Icon color based on active state
-          className="user-icon"
-        />
-        Log Out
-      </button>
+      <div className="logout-button" onClick={handleLogoutClick}>
+        <img src="/../userimage.png" alt="User" className="user-icon" />
+        <strong>Hello, {auth.userData.profile.given_name}</strong> |{" "}
+        <span className="logout-text"> Log Out</span>
+      </div>
     );
   } else {
     // User is logged out, show the Log In button
