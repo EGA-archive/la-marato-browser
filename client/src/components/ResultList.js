@@ -1,5 +1,3 @@
-// client/src/components/ResultList.js
-
 import React, { useState } from "react";
 import { Box } from "@mui/system";
 import { Row } from "react-bootstrap";
@@ -7,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import MailDialog from "./MailDialog.js";
 
-// changed
 function ResultList({
   results,
   metaresults,
@@ -120,13 +117,14 @@ function ResultList({
       }
       if (isresponse === "True") {
         populationrow = rows.map((pr) => (
-          <tr key={pr.id}>
+          <tr className="yo" key={pr.id}>
             <td></td>
             <td>{dataset}</td>
             <td className="centered-header">{pr.alleleCount}</td>
             <td className="centered-header">{pr.alleleCountHeterozygous}</td>
             <td className="centered-header">{pr.alleleCountHomozygous}</td>
             <td className="centered-header">{pr.geneAssociated}</td>
+            <td></td>
           </tr>
         ));
 
@@ -143,13 +141,7 @@ function ResultList({
                 <td className="beaconized" colSpan="6">
                   <b>{beaconName}</b>
                 </td>
-                <td
-                  className="beaconized"
-                  style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
-                  }}
-                >
+                <td className="beaconized beaconized-email">
                   <IconButton onClick={() => handleDialogOpen(beaconEmail)}>
                     <MailOutlineRoundedIcon
                       sx={{
@@ -197,27 +189,24 @@ function ResultList({
           <p>
             {queriedVariant && <span> Queried Variant: {queriedVariant}</span>}
           </p>
-          <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", marginBottom: "32px" }}>
+          <div className="table-container">
+            <table className="data-table">
               <tr>
                 <th>Beacon</th>
-                <th style={{ width: "20%" }}>Dataset</th>
-                <th className="centered-header" style={{ width: "11%" }}>
+                <th className="dataset-column">Dataset</th>
+                <th className="centered-header allele-count-column">
                   Allele Count
                 </th>
-                {/* <th style={{ width: "11%" }}>Allele Number</th> */}
-                <th className="centered-header" style={{ width: "16%" }}>
+                <th className="centered-header homozygous-count-column">
                   Heterozygous Count
                 </th>
-                <th className="centered-header" style={{ width: "16%" }}>
+                <th className="centered-header heterozygous-count-column">
                   Homozygous/ Hemizygous Count
                 </th>
-                <th className="centered-header" style={{ width: "11%" }}>
+                <th className="centered-header geneassociated-column">
                   Gene Associated
                 </th>
-                <th className="centered-header" style={{ width: "11%" }}>
-                  Contact
-                </th>
+                <th className="centered-header contact-column">Contact</th>
               </tr>
               {addedBeacons}
             </table>

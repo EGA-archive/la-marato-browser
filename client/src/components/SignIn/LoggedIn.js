@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "oidc-react";
-import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 
 const LoggedIn = ({ onClickHandler }) => {
   const [isActive, setIsActive] = useState(false);
@@ -12,18 +11,10 @@ const LoggedIn = ({ onClickHandler }) => {
     setIsActive(true);
   };
 
-  // const handleLogoutClick = () => {
-  //   auth.signOut();
-  //   setLogoutIsActive(false); // Reset logout button state
-  //   console.log("Login handleLogoutClick:", isActive)
-  //   console.log("Logout handleLogoutClick:", logoutIsActive)
-  // };
-
-  console.log("This is my given_name:", auth.userData);
-
   const handleLogoutClick = () => {
     setLogoutIsActive(true);
   };
+
   useEffect(() => {
     if (logoutIsActive) {
       setTimeout(() => auth.signOut(), 600);
@@ -34,8 +25,15 @@ const LoggedIn = ({ onClickHandler }) => {
     return (
       <div className="logout-button" onClick={handleLogoutClick}>
         <img src="/../userimage.png" alt="User" className="user-icon" />
-        <strong>Hello, {auth.userData.profile.given_name}</strong> |{" "}
-        <span className="logout-text"> Log Out</span>
+        <strong>Hello, {auth.userData.profile.given_name}</strong>
+        <span className="separator"> | </span>
+        <span
+          className="logout-text"
+          onClick={() => auth.signOut() && auth.signOutRedirect()}
+        >
+          {" "}
+          Log Out{" "}
+        </span>
       </div>
     );
   } else {

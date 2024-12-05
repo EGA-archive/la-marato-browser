@@ -41,9 +41,9 @@ const customTheme = createTheme({
     MuiFormHelperText: {
       styleOverrides: {
         root: {
-          marginLeft: "0px", // Remove left margin
-          marginRight: "0px", // Remove right margin
-          color: "#FF0000", // Set the color to red for error text
+          marginLeft: "0px",
+          marginRight: "0px",
+          color: "#FF0000",
         },
       },
     },

@@ -11,6 +11,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Footer from "./components/Footer.js";
 import LoggedIn from "./components/SignIn/LoggedIn.js";
 import NetworkMembers from "./components/NetworkMembers.js";
+import CustomNavbar from "./components/CustomNavbar.js";
 
 function App() {
   // new
@@ -120,41 +121,7 @@ function App() {
   return (
     <div class="bigparent">
       <div class="parentwrapper">
-        <Navbar
-          style={{
-            background: "#902B43",
-            height: "77px",
-            width: "100vw",
-            borderWidth: "0",
-            position: "sticky",
-            top: "0",
-            zIndex: "2",
-          }}
-        >
-          <Container className="navbarContainer">
-            <div className="navbar-column navbar-logo">
-              <a
-                className="lamaratologo"
-                onClick={() => {
-                  window.location.href = "/";
-                }}
-              >
-                <img
-                  src="/../lamaratologo.png"
-                  className="lamaratologo"
-                  alt="lamaratologo"
-                />
-              </a>
-            </div>
-            <div className="navbar-column navbar-title">
-              <h1 className="beacon-title">La Marató Beacon Network Browser</h1>
-            </div>
-            <div className="navbar-column navbar-empty"></div>
-            <div className="navbar-column navbar-login">
-              <LoggedIn onClickHandler={onClickHandler} />
-            </div>
-          </Container>
-        </Navbar>
+        <CustomNavbar onClickHandler={onClickHandler} />
         <Container className="logos-founders">
           <img
             src="/../lamaratologogrey.png"
@@ -185,9 +152,7 @@ function App() {
               {auth && auth.userData && <SignInForm />}
               {!auth.userData && isQuizePageVisible && <SignInForm />}
             </Col>
-            {/* <div className="mt-5"></div> */}
             <Search search={search} setVariant={setQueriedVariant} />{" "}
-            {/* changed */}
           </Row>
           {isLoading === true && error === false && <div class="loader"></div>}
           {isLoading === false && error === false && (
@@ -198,12 +163,11 @@ function App() {
               error={error}
               queriedVariant={queriedVariant}
             />
-          )}{" "}
+          )}
           {/* Show NetworkMembers only if no search results */}
           {isLoading === false && error === false && results?.length === 0 && (
             <NetworkMembers />
           )}
-          {/* changed */}
           {error !== false && (
             <ResultList
               results={results}
@@ -212,8 +176,7 @@ function App() {
               error={error}
               // queriedVariant={queriedVariant}
             />
-          )}{" "}
-          {/* changed */}
+          )}
         </Container>
       </div>
       <Footer />

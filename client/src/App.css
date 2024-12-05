@@ -60,6 +60,7 @@ input:-webkit-autofill:active {
   text-align: center;
   font-size: 16px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  cursor: pointer;
 }
 
 .hiddenspan {
@@ -131,18 +132,27 @@ body {
   min-height: 100%;
 }
 
-.navbarContainer {
+.custom-navbar {
+  background: #902b43;
+  height: 77px;
+  width: 100vw;
+  border-width: 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
 }
 
-/* Common styling for all columns */
 .navbar-title,
 .navbar-empty,
 .navbar-login {
-  flex: 1; /* These columns share the remaining space equally */
+  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -155,17 +165,14 @@ body {
   align-items: center;
 }
 
-/* Title Column */
 .navbar-title {
   justify-content: center;
 }
 
-/* Empty Column */
 .navbar-empty {
   justify-content: center;
 }
 
-/* Login Button Column */
 .navbar-login {
   justify-content: flex-end;
 }
@@ -179,6 +186,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   line-height: 27.24px;
+  margin-left: -10%;
 }
 
 .lamaratologo {
@@ -228,12 +236,16 @@ body {
   letter-spacing: -0.16px;
   line-height: 24px;
   cursor: pointer;
-  margin-left: 15%;
   white-space: nowrap;
+  margin-right: 3%;
 }
 
-.logout-button:hover .logout-text {
+.logout-text:hover {
   text-decoration: underline;
+}
+
+.separator {
+  margin: 0 5px;
 }
 
 .logos-founders {
@@ -259,6 +271,29 @@ body {
   height: 22.8px;
 }
 
+.search-row {
+  margin-top: 30px;
+}
+
+.col-variant {
+  margin-bottom: -10px;
+}
+.variant-query {
+  margin-right: 10px;
+}
+
+.tooltip-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.col-searchbutton {
+  display: inline;
+  width: 150px;
+}
+
 .input-field {
   border: 1px solid #902b434d;
   border-radius: 10px;
@@ -279,6 +314,14 @@ body {
 .genome-field {
   width: 240px;
   height: 46px;
+}
+
+.example-span {
+  margin-top: 10px;
+}
+
+.example {
+  color: blue;
 }
 
 /* Not yet finished */
@@ -330,7 +373,7 @@ body {
   object-fit: contain;
 }
 
-.button1 {
+.searchbutton {
   border: 1px solid #902b43;
   width: Hug (122px) px;
   height: 40px;
@@ -349,7 +392,7 @@ body {
   top: 30px;
 }
 
-.button1:disabled {
+.searchbutton:disabled {
   color: #902b434d;
   background-color: transparent;
   border: 1px solid #902b434d;
@@ -369,38 +412,26 @@ body {
   top: 3px;
 }
 
-.button1:hover {
+.searchbutton:hover {
   background-color: #902b43;
   color: white;
 }
 
-.button1:disabled:hover {
+.searchbutton:disabled:hover {
   color: #902b434d;
   background-color: transparent;
 }
 
-.button1:hover .lupared {
+.searchbutton:hover .lupared {
   background-image: url("../public/lupawhite.svg");
 }
 
-.button1:disabled:hover .lupared {
+.searchbutton:disabled:hover .lupared {
   background-image: url("../public/lupapink.svg");
 }
 
-.button1:disabled .lupared {
+.searchbutton:disabled .lupared {
   background-image: url("../public/lupapink.svg");
-}
-
-.button2 {
-  border-radius: 5px;
-  border: 1px solid black;
-  height: 35px;
-  width: 80px;
-}
-
-.button2:hover {
-  background-color: #7276b1;
-  color: white;
 }
 
 .customButton {
@@ -415,13 +446,36 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.data-table {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.dataset-column {
+  width: 20%;
+}
+
+.allele-count-column,
+.geneassociated-column,
+.contact-column {
+  width: 11%;
+}
+
+.homozygous-count-column,
+.heterozygous-count-column {
+  width: 16%;
+}
 
 .centered-header {
   text-align: center;
   vertical-align: middle;
   word-wrap: break-word;
   white-space: normal;
-  height: 62.78px;
 }
 
 .mail-icon {
@@ -438,6 +492,13 @@ body {
   border-style: solid;
   border-top-color: #902b43;
   border-bottom-color: #902b43;
+  height: 40px !important;
+  line-height: 10px;
+}
+
+.beaconized-email {
+  text-align: center;
+  vertical-align: middle;
 }
 
 table {
@@ -452,23 +513,18 @@ table {
 th {
   background: #902b43;
   color: white;
-  padding: 0.5em 1em;
+  padding: 0.65em 1em;
   text-align: left;
 }
 td {
   color: black;
   font-weight: 400;
   padding: 0.65em 1em;
+  max-height: 40px !important;
 }
 
 .disabled td {
   color: #4f5f64;
-}
-tbody tr {
-  transition: background 0.25s ease;
-}
-tbody tr:hover {
-  background: #014055;
 }
 
 /* Background-color of the odd rows */
@@ -517,15 +573,50 @@ tbody tr:hover {
   }
 }
 
-/* Dialog Styling
-.mail-dialog-title {
+.phonenumber-div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.phonenumber-img {
+  width: 19.97px;
+  height: 20px;
+}
+
+.mail-div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.mail-img {
+  width: 21.44px;
+  height: 17.23px;
+}
+.mail-link {
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.5px;
-  color: #902b43;
-} */
+  color: black;
+  text-decoration: underline;
+}
+
+.file-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.docs-link {
+  color: #3176b1;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 14px;
+}
 
 .App-header {
   background-color: #282c34;
@@ -653,28 +744,4 @@ tbody tr:hover {
   margin: auto auto;
   position: absolute;
   text-align: center;
-}
-
-@media (max-width: 1800px) {
-  .gdilogo {
-    margin-left: 10%;
-  }
-}
-
-@media (max-width: 1600px) {
-  .gdilogo {
-    margin-left: 8%;
-  }
-}
-
-@media (max-width: 1500px) {
-  .gdilogo {
-    margin-left: 5%;
-  }
-}
-
-@media (max-width: 700px) {
-  .gdilogo {
-    margin-left: 0%;
-  }
 }
