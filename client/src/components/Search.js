@@ -46,6 +46,7 @@ function Search({ search, setVariant }) {
     },
     [`& .MuiTooltip-arrow`]: {
       color: "#902B43",
+      transform: "translate(0px, 0px) !important",
     },
   });
 
@@ -85,24 +86,13 @@ function Search({ search, setVariant }) {
             <Form noValidate onSubmit={handleSubmit}>
               {/* <Form.Group controlId="country"> */}
               <Form.Group>
-                <Row style={{ marginTop: "30px" }}>
-                  <Col
-                    lg={8}
-                    className="variant"
-                    style={{ marginBottom: "-10px" }}
-                  >
+                <Row className="search-row">
+                  <Col lg={8} className="col-variant">
                     <Form.Label>
-                      <b style={{ marginRight: "10px" }}>Variant query</b>
+                      <b className="variant-query">Variant query</b>
                       <CustomTooltip
                         title={
-                          <ul
-                            style={{
-                              margin: 0,
-                              padding: 0,
-                              listStyleType: "disc",
-                              paddingLeft: "20px",
-                            }}
-                          >
+                          <ul className="tooltip-list">
                             <li>
                               Type your variant or copy from Excel with this
                               specific structure: chr / position / ref. base /
@@ -114,15 +104,10 @@ function Search({ search, setVariant }) {
                         placement="top-start"
                         arrow
                       >
-                        <b
-                          className="infovariant"
-                          style={{ cursor: "pointer" }}
-                        >
-                          i
-                        </b>
+                        <b className="infovariant">i</b>
                       </CustomTooltip>
                     </Form.Label>
-                    <Form.Control
+                    {/* <Form.Control
                       type="search"
                       name="variant"
                       className="input-field variant-field shadow-none"
@@ -135,6 +120,36 @@ function Search({ search, setVariant }) {
                       onPaste={handlePaste}
                       value={values.variant}
                       onChange={handleChange}
+                    /> */}
+                    {/* Varaint Field */}
+                    <Autocomplete
+                      freeSolo
+                      options={[]}
+                      value={values.variant}
+                      onInputChange={(event, newValue) => {
+                        setFieldValue("variant", newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          placeholder="Insert your variant"
+                          size="small"
+                          onPaste={handlePaste}
+                          error={Boolean(touched.variant && errors.variant)}
+                          helperText={
+                            touched.variant && errors.variant
+                              ? errors.variant
+                              : ""
+                          }
+                          sx={{
+                            marginBottom: "20px",
+                            "& .MuiOutlinedInput-root": {
+                              borderColor:
+                                touched.variant && errors.variant ? "red" : "",
+                            },
+                          }}
+                        />
+                      )}
                     />
                   </Col>
 
@@ -170,9 +185,9 @@ function Search({ search, setVariant }) {
                     />
                   </Col>
                   {/* Search button */}
-                  <div style={{ width: "150px", display: "inline" }}>
+                  <div className="col-searchbutton">
                     <button
-                      className="button1"
+                      className="searchbutton"
                       type="submit"
                       variant="primary"
                       disabled={errors.variant || errors.genome}
@@ -182,18 +197,13 @@ function Search({ search, setVariant }) {
                   </div>
                 </Row>
               </Form.Group>
-              <Form.Group as={Row}></Form.Group>
-              {/* Example */}
-              {touched.variant && errors.variant && (
-                <div className="errors">{errors.variant}</div>
-              )}
-              <div style={{ marginTop: "10px" }}>
+              <div className="example-span">
                 <span>Example: </span>
                 <a
                   type="reset"
                   onClick={() => setFieldValue("variant", "22-16050921-T-G")}
                 >
-                  <u style={{ color: "blue" }}>22-16050921-T-G</u>
+                  <u className="example">22-16050921-T-G</u>
                 </a>
               </div>
             </Form>

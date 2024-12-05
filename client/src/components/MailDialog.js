@@ -81,40 +81,17 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
             color: "black",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            <img
-              src={phoneIcon}
-              alt="Phone Icon"
-              style={{ width: "19.97px", height: "20px" }}
-            />
+          <div className="phonenumber-div">
+            <img src={phoneIcon} alt="Phone Icon" className="phonenumber-img" />
             <span>+34 123 456 789</span> {/* Hardcoded phone number */}
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "20px",
-              marginTop: "8px",
-            }}
-          >
-            <img
-              src={mailIcon}
-              alt="Mail Icon"
-              style={{ width: "21.44px", height: "17.23px" }}
-            />
+          <div className="mail-div">
+            <img src={mailIcon} alt="Mail Icon" className="mail-img" />
             <a
               href={`mailto:${beaconEmail.replace("mailto:", "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontFamily: "Open Sans, sans-serif",
-                fontSize: "14px",
-                fontWeight: 400,
-                lineHeight: "24px",
-                letterSpacing: "0.5px",
-                color: "black",
-                textDecoration: "underline",
-              }}
+              className="mail-link"
             >
               {beaconEmail.replace("mailto:", "")}
               {/* {beaconEmail} */}
@@ -150,11 +127,7 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
           alignItems: "flex-start",
         }}
       >
-        <img
-          src={fileIcon}
-          alt="File Icon"
-          style={{ width: "20px", height: "20px", marginRight: "8px" }}
-        />
+        <img src={fileIcon} alt="File Icon" className="file-img" />
         LaMarató Beacon Network Standards
       </DialogTitle>
       <DialogContent
@@ -180,12 +153,7 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
             href="https://docs.google.com/document/d/1b472gmuq5g_NZaYxJWnXGbwfGRgA1PfjhjSty3QqDv0/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: "#3176B1",
-              textDecoration: "underline",
-              fontWeight: "bold",
-              fontSize: "14px",
-            }}
+            className="docs-link"
           >
             https://docs.google.com/document/d/1b472gmuq5g_NZaYxJWnXGbwfGRgA1PfjhjSty3QqDv0/edit?usp=sharing
           </a>
