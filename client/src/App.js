@@ -7,9 +7,7 @@ import ResultList from "./components/ResultList";
 import Search from "./components/Search";
 import SignInForm from "./components/SignIn/SignInForm";
 import { useAuth } from "oidc-react";
-import Navbar from "react-bootstrap/Navbar";
 import Footer from "./components/Footer.js";
-import LoggedIn from "./components/SignIn/LoggedIn.js";
 import NetworkMembers from "./components/NetworkMembers.js";
 import CustomNavbar from "./components/CustomNavbar.js";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import LoggedIn from "./SignIn/LoggedIn";
+import LoggedIn from "../components/SignIn/LoggedIn";
 
 const CustomNavbar = ({ onClickHandler }) => {
   return (
