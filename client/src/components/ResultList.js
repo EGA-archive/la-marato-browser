@@ -134,7 +134,7 @@ function ResultList({
             dataset !== "" &&
             meta.response.id === result.beaconId
           ) {
-            beaconName = meta.response.name;
+            beaconName = meta.response.organization.name;
             let beaconEmail = meta.response.organization.contactUrl;
             beaconized = (
               <tr>
