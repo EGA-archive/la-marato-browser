@@ -12,12 +12,12 @@ function ResultList({
   queriedVariant,
   error,
 }) {
-  console.log("Results from RL", results);
-  console.log("Raw Results from RL", results);
-  results.forEach((result, index) => {
-    console.log(`Result ${index}:`, result);
-  });
-  console.log("Metaresults from RL", metaresults);
+  // console.log("Results from RL", results);
+  // console.log("Raw Results from RL", results);
+  // results.forEach((result, index) => {
+  //   console.log(`Result ${index}:`, result);
+  // });
+  // console.log("Metaresults from RL", metaresults);
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -117,7 +117,7 @@ function ResultList({
       }
       if (isresponse === "True") {
         populationrow = rows.map((pr) => (
-          <tr className="yo" key={pr.id}>
+          <tr key={pr.id}>
             <td></td>
             <td>{dataset}</td>
             <td className="centered-header">{pr.alleleCount}</td>
@@ -217,19 +217,68 @@ function ResultList({
           </div>
         </Box>
       )}
+
       {rows.length === 0 && dataset !== "" && (
         <p className="exclamation">No results found.</p>
       )}
       {addedBeacons.length === 0 && total_count !== 0 && (
         <p className="exclamation">No results found.</p>
       )}
-      {!results && <p className="exclamation">No results found.</p>}
+      {(!results || results?.[0]?.results.length === 0) && (
+        <p className="exclamation">No results found.</p>
+      )}
+
       {error !== false && (
         <p className="bi bi-exclamation-triangle exclamation">
           There is a problem connecting to the Beacon Network, please try again
           later.
         </p>
       )}
+      {/* {console.log("Debugging Info:", {
+        "Rows Length": rows.length,
+        Dataset: dataset,
+        "Added Beacons Length": addedBeacons.length,
+        "Total Count": total_count,
+        Results: results,
+        Error: error,
+      })}
+
+      {rows.length === 0 && dataset !== "" && (
+        <>
+          {console.log(
+            "Condition Met: Rows are empty and dataset is not empty."
+          )}
+          <p className="exclamation">No results found.</p>
+        </>
+      )}
+
+      {addedBeacons.length === 0 && total_count !== 0 && (
+        <>
+          {console.log(
+            "Condition Met: No beacons added but total count is not zero."
+          )}
+          <p className="exclamation">No results found.</p>
+        </>
+      )}
+
+      {!results ||
+        (results?.[0]?.results.length === 0 && (
+          <>
+            {console.log("Condition Met: Results are undefined or null.")}
+            <p className="exclamation">No results found.</p>
+          </>
+        ))}
+
+      {error !== false && (
+        <>
+          {console.log("Condition Met: Error is not false.", { Error: error })}
+          <p className="bi bi-exclamation-triangle exclamation">
+            There is a problem connecting to the Beacon Network, please try
+            again later.
+          </p>
+        </>
+      )} */}
+
       <MailDialog
         open={dialogOpen}
         onClose={handleDialogClose}
