@@ -201,9 +201,9 @@ function Search({ search, setVariant }) {
                 <span>Example: </span>
                 <a
                   type="reset"
-                  onClick={() => setFieldValue("variant", "22-16050606-G-A")}
+                  onClick={() => setFieldValue("variant", "17-43045703-G-A")}
                 >
-                  <u className="example">22-16050606-G-A</u>
+                  <u className="example">17-43045703-G-A</u>
                 </a>
               </div>
             </Form>

@@ -121,8 +121,12 @@ function ResultList({
             <td></td>
             <td>{dataset}</td>
             <td className="centered-header">{pr.alleleCount}</td>
-            <td className="centered-header">{pr.alleleCountHeterozygous}</td>
-            <td className="centered-header">{pr.alleleCountHomozygous}</td>
+            <td className="centered-header">
+              {pr.alleleCountHeterozygous || 0}
+            </td>
+            <td className="centered-header">
+              {pr.alleleCountHomozygous || pr.alleleCount}{" "}
+            </td>
             <td className="centered-header">{pr.geneAssociated}</td>
             <td></td>
           </tr>
