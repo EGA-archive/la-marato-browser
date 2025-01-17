@@ -108,17 +108,26 @@ input:-webkit-autofill:active {
   margin-top: 50px;
 }
 
+.custom-footer {
+  background: #e2e2e2;
+  height: Fixed (49px) px;
+  width: 100vw;
+  border-width: 0;
+  position: fixed;
+  z-index: 2;
+
+  bottom: 0;
+}
+
 .footer {
   width: 100vw;
   height: Fixed (49px) px;
-  padding: 12px 143px 12px 143px;
-  gap: 174px;
+  padding: 12px 0 12px 12px;
   opacity: 0px;
   background: #e2e2e2;
 }
 
 .footer-text {
-  /* margin-left: 1%;; */
   font-size: 12px;
 }
 
