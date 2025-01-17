@@ -115,7 +115,6 @@ input:-webkit-autofill:active {
   border-width: 0;
   position: fixed;
   z-index: 2;
-
   bottom: 0;
 }
 
