@@ -47,7 +47,7 @@ function NetworkMembers() {
                   className="cell-image"
                 />
               ) : (
-                <p>No Logo Available</p>
+                <p>No Logo Available Currently</p>
               )}
             </div>
           ))}
