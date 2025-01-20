@@ -121,22 +121,43 @@ function App() {
       <div class="parentwrapper">
         <CustomNavbar onClickHandler={onClickHandler} />
         <Container className="logos-founders">
-          <img
-            src="/../lamaratologogrey.png"
-            className="lamaratologogrey"
-            alt="lamaratologogrey"
-          />
-          <img
-            src="/../institutcatalasalutgrey.png"
-            className="institutcatalasalutgrey"
-            alt="institutcatalasalutgrey"
-          />
-          <img
-            src="/../lacaixalogogrey.png"
-            className="lacaixalogogrey"
-            alt="lacaixalogogrey"
-          />
+          <a
+            href="https://www.3cat.cat/tv3/marato/fundacio/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/../lamaratologogrey.png"
+              className="lamaratologogrey"
+              alt="lamaratologogrey"
+            />
+          </a>
+
+          <a
+            href="https://ics.gencat.cat/ca/inici"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/../institutcatalasalutgrey.png"
+              className="institutcatalasalutgrey"
+              alt="institutcatalasalutgrey"
+            />
+          </a>
+
+          <a
+            href="https://fundacionlacaixa.org/ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/../lacaixalogogrey.png"
+              className="lacaixalogogrey"
+              alt="lacaixalogogrey"
+            />
+          </a>
         </Container>
+
         <Container>
           <Row>
             <Col lg={3}></Col>
