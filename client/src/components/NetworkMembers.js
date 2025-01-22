@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import config from "../config";
 
 function NetworkMembers() {
   const [members, setMembers] = useState([]);
@@ -12,7 +13,7 @@ function NetworkMembers() {
         let metaresponse;
         metaresponse = await axios({
           method: "get",
-          url: "https://lamarato-beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/",
+          url: `${config.API_URL}`,
           headers: {
             "Content-Type": "application/json",
           },

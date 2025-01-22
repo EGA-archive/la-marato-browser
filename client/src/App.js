@@ -10,6 +10,7 @@ import { useAuth } from "oidc-react";
 import Footer from "./components/Footer.js";
 import NetworkMembers from "./components/NetworkMembers.js";
 import CustomNavbar from "./components/CustomNavbar.js";
+import config from "./config";
 
 function App() {
   // new
@@ -47,7 +48,7 @@ function App() {
       let metaresponse;
       metaresponse = await axios({
         method: "get",
-        url: `https://lamarato-beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0`,
+        url: `${config.API_URL}`,
         // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/`,
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +90,7 @@ function App() {
         // console.log(auth)
         response = await axios({
           method: "post",
-          url: `https://lamarato-beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
+          url: `${config.API_URL}/g_variants`,
           // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants`,
           headers: {
             "Content-Type": "application/json",
@@ -100,7 +101,7 @@ function App() {
       } else {
         response = await axios({
           method: "get",
-          url: `https://lamarato-beacon-network-backend-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=${genome}`,
+          url: `${config.API_URL}/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=${genome}`,
           // url: `https://af-gdi-bn-api-demo.ega-archive.org/beacon-network/v2.0.0/g_variants?start=${arr[1]}&alternateBases=${arr[3]}&referenceBases=${arr[2]}&referenceName=${arr[0]}&limit=1&assemblyId=GRCh37`,
           headers: {
             "Content-Type": "application/json",
@@ -115,6 +116,8 @@ function App() {
       console.error(error);
     }
   };
+
+  // console.log("API URL:", config.API_URL);
 
   return (
     <div class="bigparent">
