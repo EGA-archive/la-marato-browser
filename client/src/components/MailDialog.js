@@ -83,7 +83,7 @@ export default function MailDialog({ open, onClose, beaconEmail }) {
         >
           <div className="phonenumber-div">
             <img src={phoneIcon} alt="Phone Icon" className="phonenumber-img" />
-            <span>+34 123 456 789</span> {/* Hardcoded phone number */}
+            <span></span> {/* Hardcoded phone number */}
           </div>
           <div className="mail-div">
             <img src={mailIcon} alt="Mail Icon" className="mail-img" />

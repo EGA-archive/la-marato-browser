@@ -108,7 +108,7 @@ function ResultList({
                       frequency.alleleFrequency.toString().substring(0, 6)
                     ),
                   });
-                  console.log("All pushed rows so far:", rows);
+                  // console.log("All pushed rows so far:", rows);
                 });
               });
             }

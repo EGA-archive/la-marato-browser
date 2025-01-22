@@ -119,84 +119,88 @@ function App() {
   return (
     <div class="bigparent">
       <div class="parentwrapper">
-        <CustomNavbar onClickHandler={onClickHandler} />
-        <Container className="logos-founders">
-          <a
-            href="https://www.3cat.cat/tv3/marato/fundacio/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/../lamaratologogrey.png"
-              className="lamaratologogrey"
-              alt="lamaratologogrey"
-            />
-          </a>
+        <div className="main-content">
+          <CustomNavbar onClickHandler={onClickHandler} />
+          <Container className="logos-founders">
+            <a
+              href="https://www.3cat.cat/tv3/marato/fundacio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/../lamaratologogrey.png"
+                className="lamaratologogrey"
+                alt="lamaratologogrey"
+              />
+            </a>
 
-          <a
-            href="https://ics.gencat.cat/ca/inici"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/../institutcatalasalutgrey.png"
-              className="institutcatalasalutgrey"
-              alt="institutcatalasalutgrey"
-            />
-          </a>
+            <a
+              href="https://ics.gencat.cat/ca/inici"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/../institutcatalasalutgrey.png"
+                className="institutcatalasalutgrey"
+                alt="institutcatalasalutgrey"
+              />
+            </a>
 
-          <a
-            href="https://fundacionlacaixa.org/ca/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/../lacaixalogogrey.png"
-              className="lacaixalogogrey"
-              alt="lacaixalogogrey"
-            />
-          </a>
-        </Container>
+            <a
+              href="https://fundacionlacaixa.org/ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/../lacaixalogogrey.png"
+                className="lacaixalogogrey"
+                alt="lacaixalogogrey"
+              />
+            </a>
+          </Container>
 
-        <Container>
-          <Row>
-            <Col lg={3}></Col>
-            <Col lg={7}></Col>
-            <Col>
-              {/*<button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>*/}
-              {/*<button></button>*/}
+          <Container>
+            <Row>
+              <Col lg={3}></Col>
+              <Col lg={7}></Col>
+              <Col>
+                {/*<button onClick={onClickHandler} style={{backgroundImage:"url('/../ls-login.png')",backgroundSize:"cover",backgroundColor:"transparent",height:"35px",width:"160px",borderWidth:"0"}}></button>*/}
+                {/*<button></button>*/}
 
-              {/* When the flag is true, the page will be shown */}
+                {/* When the flag is true, the page will be shown */}
 
-              {auth && auth.userData && <SignInForm />}
-              {!auth.userData && isQuizePageVisible && <SignInForm />}
-            </Col>
-            <Search search={search} setVariant={setQueriedVariant} />{" "}
-          </Row>
-          {isLoading === true && error === false && <div class="loader"></div>}
-          {isLoading === false && error === false && (
-            <ResultList
-              results={results}
-              metaresults={metaresults}
-              finalstart={finalstart}
-              error={error}
-              queriedVariant={queriedVariant}
-            />
-          )}
-          {/* Show NetworkMembers only if no search results */}
-          {isLoading === false && error === false && results?.length === 0 && (
-            <NetworkMembers />
-          )}
-          {error !== false && (
-            <ResultList
-              results={results}
-              metaresults={metaresults}
-              finalstart={finalstart}
-              error={error}
-              // queriedVariant={queriedVariant}
-            />
-          )}
-        </Container>
+                {auth && auth.userData && <SignInForm />}
+                {!auth.userData && isQuizePageVisible && <SignInForm />}
+              </Col>
+              <Search search={search} setVariant={setQueriedVariant} />{" "}
+            </Row>
+            {isLoading === true && error === false && (
+              <div class="loader"></div>
+            )}
+            {isLoading === false && error === false && (
+              <ResultList
+                results={results}
+                metaresults={metaresults}
+                finalstart={finalstart}
+                error={error}
+                queriedVariant={queriedVariant}
+              />
+            )}
+            {/* Show NetworkMembers only if no search results */}
+            {isLoading === false &&
+              error === false &&
+              results?.length === 0 && <NetworkMembers />}
+            {error !== false && (
+              <ResultList
+                results={results}
+                metaresults={metaresults}
+                finalstart={finalstart}
+                error={error}
+                // queriedVariant={queriedVariant}
+              />
+            )}
+          </Container>
+        </div>
         <Footer />
       </div>
     </div>
