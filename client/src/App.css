@@ -11,10 +11,6 @@
   border: 1px solid #70154c4d;
 }
 
-.euroflag {
-  height: 30px;
-}
-
 .count {
   position: absolute;
   right: 50px;
@@ -40,23 +36,20 @@ input:-webkit-autofill:active {
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
-  flex: 1;
-  padding-bottom: 60px;
 }
 
-.parentwrapper {
+/* .parentwrapper {
   height: 100%;
   width: 100%;
-}
+} */
 
 #root {
   display: flex;
   height: 100%;
-  width: 100%;
-  /* overflow: auto; */
 }
 
 .infovariant {
+  cursor: pointer;
   display: inline-block;
   width: 14.67px;
   height: 14.67px;
@@ -69,7 +62,6 @@ input:-webkit-autofill:active {
   text-align: center;
   font-size: 16px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  cursor: pointer;
 }
 
 .hiddenspan {
@@ -123,26 +115,53 @@ input:-webkit-autofill:active {
 }
 
 body {
-  height: 100%;
+  height: 100vh;
   min-height: 100%;
 }
 
-.custom-navbar {
-  background: #902b43;
-  height: 77px;
-  width: 100%;
-  border-width: 0;
-  position: sticky;
-  top: 0;
+/* Footer CSS */
+
+.container-footer {
+  padding: 0 10px;
+}
+
+.footer {
+  background: #e2e2e2;
+  width: 100vw;
+  height: 49px !important;
+  padding: 10px 0px 0px 0px;
   z-index: 2;
 }
 
-.navbar-container {
+.custom-footer {
+  background: #e2e2e2;
+  border: none;
+  height: 49px !important;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+/* Navbar CSS */
+
+.custom-navbar {
+  background: #902b43;
+  border: none;
+  height: 77px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  overflow-x: hidden;
+}
+
+/* .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
-}
+} */
 
 .navbar-title,
 .navbar-empty,
@@ -170,35 +189,6 @@ body {
 
 .navbar-login {
   justify-content: flex-end;
-}
-
-.main-content {
-  flex-grow: 2;
-}
-
-/* .custom-footer {
-  background: #e2e2e2;
-  height: 49px;
-  width: 100%;
-  border-width: 0;
-  position: fixed;
-  z-index: 2;
-  bottom: 0;
-  margin-top: 50px;
-} */
-
-.footer {
-  width: 100vw;
-  height: Fixed (49px) px;
-  padding: 12px 143px 12px 143px;
-  padding-left: 5%;
-  min-width: 100%;
-  gap: 174px;
-  opacity: 0px;
-  background: #e2e2e2;
-  position: fixed;
-  bottom: 0;
-  font-size: 12px;
 }
 
 .beacon-title {

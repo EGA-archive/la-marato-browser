@@ -204,8 +204,8 @@ function App() {
             )}
           </Container>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
